@@ -1,0 +1,12 @@
+# Soccer Timekeeper App Dependencies
+
+# Web Framework
+streamlit>=1.28.0
+
+# QR Code Generation and Scanning
+qrcode[pil]>=7.4.2
+streamlit-qrcode-scanner>=0.1.0
+
+# Testing
+hypothesis>=6.92.0
+pytest>=7.4.0
