@@ -20,34 +20,34 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Define User dataclass with user_id and match_list
     - _Requirements: 1.3, 1.4, 8.1_
 
-  - [ ]* 2.2 Write property test for match persistence round-trip
+  - [x] 2.2 Write property test for match persistence round-trip
     - **Property 4: Match Persistence Round-Trip**
     - **Validates: Requirements 1.4, 8.1**
 
 - [ ] 3. Implement storage layer
-  - [ ] 3.1 Create StorageManager class with JSON file operations
+  - [x] 3.1 Create StorageManager class with JSON file operations
     - Implement save_match() with file locking for concurrent access
     - Implement load_match() with error handling for missing/corrupted files
     - Implement save_user_data() and load_user_data() methods
     - Implement list_all_matches() for retrieving all stored matches
     - _Requirements: 8.1, 8.2, 8.3_
 
-  - [ ]* 3.2 Write property test for match persistence
+  - [x] 3.2 Write property test for match persistence
     - **Property 4: Match Persistence Round-Trip**
     - **Validates: Requirements 1.4, 8.1**
 
-  - [ ]* 3.3 Write property test for user match list persistence
+  - [x] 3.3 Write property test for user match list persistence
     - **Property 23: User Match List Persistence**
     - **Validates: Requirements 8.3**
 
-  - [ ]* 3.4 Write unit tests for storage error handling
+  - [x] 3.4 Write unit tests for storage error handling
     - Test file not found scenarios
     - Test JSON parsing errors
     - Test concurrent access handling
     - _Requirements: 8.1_
 
-- [ ] 4. Implement TimerManager
-  - [ ] 4.1 Create TimerManager class with timer operations
+- [x] 4. Implement TimerManager
+  - [x] 4.1 Create TimerManager class with timer operations
     - Implement initialize_timer() returning TimerState at 5400 seconds
     - Implement tick() to decrement timer by 1 second if running and > 0
     - Implement pause() to set is_running to false
@@ -57,11 +57,11 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Implement get_elapsed_time() to calculate time accounting for pauses
     - _Requirements: 1.3, 4.1, 4.2, 4.5, 5.2, 5.3, 5.4_
 
-  - [ ]* 4.2 Write property test for timer initialization
+  - [x] 4.2 Write property test for timer initialization
     - **Property 3: Timer Initialization**
     - **Validates: Requirements 1.3**
 
-  - [ ]* 4.3 Write property test for time formatting
+  - [x] 4.3 Write property test for time formatting
     - **Property 5: Time Formatting**
     - **Validates: Requirements 1.6, 3.3, 4.3**
 
@@ -95,8 +95,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test format_time with boundary values (0, 5400)
     - _Requirements: 4.1, 4.2_
 
-- [ ] 5. Implement MatchManager
-  - [ ] 5.1 Create MatchManager class with match operations
+- [x] 5. Implement MatchManager
+  - [x] 5.1 Create MatchManager class with match operations
     - Implement create_match() to generate UUID, initialize timer, create Match object
     - Implement get_match() to retrieve match by UUID from storage
     - Implement update_match() to persist match state changes
@@ -123,8 +123,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test delete_match sets is_active to false
     - _Requirements: 1.1, 1.4, 5.5_
 
-- [ ] 6. Implement QRCodeManager
-  - [ ] 6.1 Create QRCodeManager class with QR operations
+- [x] 6. Implement QRCodeManager
+  - [x] 6.1 Create QRCodeManager class with QR operations
     - Implement generate_qr_code() using qrcode library to create PIL Image
     - Implement validate_uuid() to check UUID v4 format
     - Implement extract_uuid_from_scan() to parse and validate scanned data
@@ -149,8 +149,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test extract_uuid_from_scan with malformed data
     - _Requirements: 1.2, 2.4, 2.6_
 
-- [ ] 7. Implement UserManager
-  - [ ] 7.1 Create UserManager class with user operations
+- [x] 7. Implement UserManager
+  - [x] 7.1 Create UserManager class with user operations
     - Implement get_or_create_user_id() using Streamlit session state
     - Implement add_match_to_user() to append UUID to user's match list
     - Implement remove_match_from_user() to remove UUID from match list
@@ -172,8 +172,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test remove_match_from_user removes from list
     - _Requirements: 2.3, 3.5_
 
-- [ ] 8. Implement AccessControlManager
-  - [ ] 8.1 Create AccessControlManager class with permission checks
+- [x] 8. Implement AccessControlManager
+  - [x] 8.1 Create AccessControlManager class with permission checks
     - Implement is_admin() to compare user_id with match.admin_id
     - Implement can_control_timer() to check admin status
     - Implement can_view_match() to check if user has access
@@ -193,13 +193,13 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test can_control_timer for admin and spectator
     - _Requirements: 5.1, 6.1, 6.2_
 
-- [ ] 9. Checkpoint - Ensure all business logic tests pass
+- [x] 9. Checkpoint - Ensure all business logic tests pass
   - Run all unit and property tests for managers and data models
   - Verify test coverage meets 90% threshold for business logic
   - Ensure all tests pass, ask the user if questions arise
 
-- [ ] 10. Implement Streamlit UI foundation
-  - [ ] 10.1 Create main app structure and session initialization
+- [x] 10. Implement Streamlit UI foundation
+  - [x] 10.1 Create main app structure and session initialization
     - Create app.py with Streamlit page configuration
     - Implement initialize_session() to set up user_id and navigation state
     - Implement apply_theme() with custom CSS for green soccer theme
@@ -210,14 +210,14 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - **Property 25: Navigation Context Preservation**
     - **Validates: Requirements 10.4**
 
-  - [ ] 10.3 Create home screen UI
+  - [x] 10.3 Create home screen UI
     - Display "⚽ TIME KEEPER ⚽" title
     - Create three navigation buttons: Create Timer, Get Timer, Active Timers
     - Wire buttons to update session state for navigation
     - _Requirements: 7.2, 10.1, 10.3_
 
-- [ ] 11. Implement Create Timer screen
-  - [ ] 11.1 Build create timer UI and logic
+- [x] 11. Implement Create Timer screen
+  - [x] 11.1 Build create timer UI and logic
     - Add back navigation button to home screen
     - Create text input for match description with validation
     - Create "Create Timer" button that calls MatchManager.create_match()
@@ -234,8 +234,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test timer control button actions
     - _Requirements: 1.1, 1.4, 5.2, 5.3, 5.4_
 
-- [ ] 12. Implement Get Timer screen
-  - [ ] 12.1 Build QR scanner and manual entry UI
+- [x] 12. Implement Get Timer screen
+  - [x] 12.1 Build QR scanner and manual entry UI
     - Add back navigation button to home screen
     - Integrate streamlit-qrcode-scanner for QR scanning
     - Display error message if QR code cannot be decoded
@@ -256,8 +256,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test successful match addition to user list
     - _Requirements: 2.6, 2.7, 2.3_
 
-- [ ] 13. Implement Active Timers screen
-  - [ ] 13.1 Build match list display UI
+- [x] 13. Implement Active Timers screen
+  - [x] 13.1 Build match list display UI
     - Add back navigation button to home screen
     - Call UserManager.get_user_matches() to retrieve match UUIDs
     - Call MatchManager.list_active_matches() to get match details
@@ -282,8 +282,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test time formatting in display
     - _Requirements: 3.1, 3.5, 3.3_
 
-- [ ] 14. Implement Timer Detail screen
-  - [ ] 14.1 Build timer detail UI with role-based controls
+- [x] 14. Implement Timer Detail screen
+  - [x] 14.1 Build timer detail UI with role-based controls
     - Add back navigation button to active timers screen
     - Display match description and UUID
     - Display large formatted timer with custom CSS styling
@@ -302,8 +302,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test timer synchronization across page refreshes
     - _Requirements: 5.1, 6.1, 6.2, 8.5_
 
-- [ ] 15. Implement error handling and validation
-  - [ ] 15.1 Add comprehensive error handling across all components
+- [x] 15. Implement error handling and validation
+  - [x] 15.1 Add comprehensive error handling across all components
     - Implement safe_load_match() with try-catch for storage errors
     - Implement safe_save_match() with permission and IO error handling
     - Implement safe_scan_qr_code() with scanner availability checks
@@ -319,8 +319,8 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test invalid timer operations
     - _Requirements: 2.4, 8.1_
 
-- [ ] 16. Final integration and polish
-  - [ ] 16.1 Wire all components together and test end-to-end flows
+- [-] 16. Final integration and polish
+  - [x] 16.1 Wire all components together and test end-to-end flows
     - Verify navigation flows between all screens
     - Test complete admin workflow: create → control → stop
     - Test complete spectator workflow: scan → view → follow
@@ -336,7 +336,7 @@ This implementation plan breaks down the Soccer Timekeeper App into discrete cod
     - Test multiple users viewing same match
     - _Requirements: 4.4, 5.6, 6.3_
 
-- [ ] 17. Final checkpoint - Ensure all tests pass and app is ready
+- [x] 17. Final checkpoint - Ensure all tests pass and app is ready
   - Run complete test suite (unit, property, integration)
   - Verify 90% code coverage for business logic
   - Perform manual testing checklist for UI and mobile QR scanning
